@@ -16,6 +16,9 @@ CFLAGS =-Wall -Werror -Wextra -g3
 LIB = libft/libft.a
 
 SRC =	main.c \
+		pipex_bonus.c \
+		path.c \
+		childs.c
 
 OBJ_DIR = obj/
 OBJ = $(SRC:%.c=$(OBJ_DIR)%.o)

@@ -6,13 +6,13 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 15:33:34 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/11/08 12:58:51 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/18 12:35:30 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	*ft_free(char *buff, char *aux)
+void	*ft_gnl_free(char *buff, char *aux)
 {
 	free(aux);
 	free(buff);
@@ -21,7 +21,7 @@ void	*ft_free(char *buff, char *aux)
 	return (NULL);
 }
 
-char	*ft_read(int fd, char *buff)
+static char	*ft_read(int fd, char *buff)
 {
 	char	*aux;
 	int		nb;
@@ -29,12 +29,12 @@ char	*ft_read(int fd, char *buff)
 	nb = 1;
 	aux = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!aux)
-		return (ft_free(buff, NULL));
-	while (nb > 0 && !ft_strchr(buff, '\n'))
+		return (ft_gnl_free(buff, NULL));
+	while (nb > 0 && !ft_gnl_strchr(buff, '\n'))
 	{
 		nb = read(fd, aux, BUFFER_SIZE);
 		if (nb == -1)
-			return (ft_free(buff, aux));
+			return (ft_gnl_free(buff, aux));
 		aux[nb] = '\0';
 		if (aux[0] == '\0')
 		{
@@ -42,15 +42,15 @@ char	*ft_read(int fd, char *buff)
 			aux = NULL;
 			return (buff);
 		}
-		buff = ft_strjoin_gnl(buff, aux);
+		buff = ft_gnl_strjoin(buff, aux);
 		if (!buff)
-			return (ft_free(buff, aux));
+			return (ft_gnl_free(buff, aux));
 	}
 	free(aux);
 	return (buff);
 }
 
-char	*ft_getline(char *buff)
+static char	*ft_getline(char *buff)
 {
 	char	*line;
 	int		i;
@@ -62,7 +62,7 @@ char	*ft_getline(char *buff)
 		i++;
 	line = malloc((i + 1) * sizeof(char));
 	if (!line)
-		return (ft_free(buff, NULL));
+		return (ft_gnl_free(buff, NULL));
 	i = 0;
 	while (buff[i] != '\n' && buff[i] != '\0')
 	{
@@ -89,8 +89,8 @@ char	*get_next_line(int fd)
 	line = ft_getline(readnotprint[fd]);
 	if (!line)
 		return (NULL);
-	i = ft_strlen(line);
-	readnotprint[fd] = ft_substr(readnotprint[fd], i,
-			(ft_strlen(readnotprint[fd]) - i));
+	i = ft_gnl_strlen(line);
+	readnotprint[fd] = ft_gnl_substr(readnotprint[fd], i,
+			(ft_gnl_strlen(readnotprint[fd]) - i));
 	return (line);
 }

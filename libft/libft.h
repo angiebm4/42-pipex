@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:55:11 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/07 15:15:49 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/18 12:26:11 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	ft_putstr(char *s);
 void	ft_putchar(char c);
 void	*ft_free_split(char **memory);
 double	ft_atof(char *str);
+int		ft_strcmp(const char *str1, const char *str2);
 
 typedef struct s_list
 {
