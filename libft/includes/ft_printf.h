@@ -3,20 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 19:25:31 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/01 12:16:09 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 13:22:08 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <limits.h>
-# include <stdarg.h>
-# include <stdio.h>
-# include <unistd.h>
+# include "default_libs.h"
 
 typedef struct s_flags
 {
@@ -50,7 +47,7 @@ int			ft_check_ptr(unsigned long ptr, t_flags *check_flags);
 
 //nbr ok
 int			ft_check_nbr(int nb, t_flags *check_flags);
-int			ft_putnbr(long n, int size, t_flags *check_flags);
+int			ft_putnbr_printf(long n, int size, t_flags *check_flags);
 int			ft_count_nbr(long n, int len);
 int			ft_check_sign(t_flags *check_flags);
 void		ft_count_sign(t_flags *check_flags);
@@ -81,7 +78,7 @@ int			ft_flag_zero_un_nbr(unsigned long nb, t_flags *check_flags);
 int			ft_width_un_nbr(unsigned long nb, t_flags *check_flags);
 
 //width
-int			ft_strlen(const char *str);
+int			ft_strlen_printf(const char *str);
 int			ft_width_str(char *str, t_flags *check_flags);
 int			ft_width_nbr(long nb, t_flags *check_flags);
 int			ft_prewidth_nbr(long nb, t_flags *check_flags);

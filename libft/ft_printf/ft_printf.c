@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 19:25:10 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/10/21 19:19:24 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 13:23:09 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int	ft_find_type(char flag, va_list args, t_flags *check_flags)
 	return (0);
 }
 
-static char	*ft_strchr(const char *s, int c)
+static char	*ft_strchr_printf(const char *s, int c)
 {
 	int	i;
 
@@ -108,7 +108,7 @@ int	ft_printf(char const *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			while (ft_strchr("+- #.0123456789", *str))
+			while (ft_strchr_printf("+- #.0123456789", *str))
 			{
 				ft_bonus_flags(*str, &check_flags);
 				str++;

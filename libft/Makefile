@@ -3,101 +3,143 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+         #
+#    By: angela <angela@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 11:55:51 by abarrio-          #+#    #+#              #
-#    Updated: 2023/12/18 12:36:37 by abarrio-         ###   ########.fr        #
+#    Updated: 2023/12/20 13:39:35 by angela           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libft.a
-CC= gcc
-#CFLAGS=-Wall -Werror -Wextra -fsanitize=address -g3
-CFLAGS=-Wall -Werror -Wextra -g3
-FUNCTIONS=	ft_isalpha.c \
-			ft_isdigit.c \
-			ft_isalnum.c \
-			ft_isascii.c \
-			ft_isprint.c \
-			ft_strlen.c \
-			ft_memset.c \
-			ft_bzero.c \
-			ft_memcpy.c \
-			ft_memmove.c \
-			ft_strlcpy.c \
-			ft_strlcat.c \
-			ft_toupper.c \
-			ft_tolower.c \
-			ft_strchr.c \
-			ft_strrchr.c \
-			ft_strncmp.c \
-			ft_memchr.c \
-			ft_memcmp.c \
-			ft_strnstr.c \
-			ft_atoi.c \
-			ft_calloc.c \
-			ft_strdup.c \
-			ft_substr.c \
-			ft_strjoin.c \
-			ft_strtrim.c \
-			ft_split.c \
-			ft_itoa.c \
-			ft_strmapi.c \
-			ft_striteri.c \
-			ft_putchar_fd.c \
-			ft_putstr_fd.c \
-			ft_putendl_fd.c \
-			ft_putnbr_fd.c \
-			ft_get_next_line.c \
-			ft_get_next_line_utils.c \
-			ft_putstr.c \
-			ft_putchar.c \
-			ft_printf.c \
-			ft_type_char.c \
-			ft_type_string.c \
-			ft_type_ptr.c \
-			ft_type_nbr.c \
-			ft_type_nbr2.c \
-			ft_type_un_nbr.c \
-			ft_type_hex.c \
-			ft_type_percent.c \
-			ft_width.c \
-			ft_type_un_nbr2.c \
-			ft_type_hex2.c \
-			ft_type_nbr3.c \
-			ft_type_hex3.c \
-			ft_atof.c \
-			ft_strcmp.c
+# COLORS
+RED		=	\033[91;1m
+GREEN	=	\033[92;1m
+YELLOW	=	\033[93;1m
+BLUE	=	\033[94;1m
+PINK	=	\033[95;1m
+CLEAR	=	\033[0m
 
-OBJ= $(FUNCTIONS:%.c=%.o)
+NAME = libft.a
 
-BONUS=	ft_lstnew_bonus.c \
-		ft_lstadd_front_bonus.c \
-		ft_lstadd_back_bonus.c \
-		ft_lstsize_bonus.c \
-		ft_lstlast_bonus.c \
-		ft_lstdelone_bonus.c \
-		ft_lstclear_bonus.c \
-		ft_lstiter_bonus.c \
-		ft_lstmap_bonus.c
+# COMPILER OPTIONS
+AR = ar -crs
+CC = gcc
+#CFLAGS = -Wall -Werror -Wextra -fsanitize=address -g3
+CFLAGS = -Wall -Werror -Wextra -g3
+RM = rm -rf
 
-OBJBONUS= $(BONUS:%.c=%.o)
-bonusu = .cache
+# FUNCTIONS
+BASICS_FUNC =	ft_isalpha.c \
+				ft_isdigit.c \
+				ft_isalnum.c \
+				ft_isascii.c \
+				ft_isprint.c \
+				ft_bzero.c \
+				ft_toupper.c \
+				ft_tolower.c
+				
+STR_FUNC =		ft_strlen.c \
+				ft_strlcpy.c \
+				ft_strlcat.c \
+				ft_strchr.c \
+				ft_strrchr.c \
+				ft_strncmp.c \
+				ft_strnstr.c \
+				ft_strdup.c \
+				ft_strjoin.c \
+				ft_strtrim.c \
+				ft_strmapi.c \
+				ft_striteri.c \
+				ft_strcmp.c
+
+MEM_FUNC =		ft_memset.c \
+				ft_memcpy.c \
+				ft_memmove.c \
+				ft_memchr.c \
+				ft_memcmp.c
+
+REST_FUNC =		ft_atoi.c \
+				ft_calloc.c \
+				ft_substr.c \
+				ft_split.c \
+				ft_itoa.c \
+				ft_atof.c
+
+PUT_FUNC =		ft_putchar_fd.c \
+				ft_putstr_fd.c \
+				ft_putendl_fd.c \
+				ft_putnbr_fd.c \
+				ft_putstr.c \
+				ft_putchar.c
+			
+GNL_FUNC = 		ft_get_next_line.c \
+				ft_get_next_line_utils.c
+
+PRINTF_FUNC =	ft_printf.c \
+				ft_type_char.c \
+				ft_type_string.c \
+				ft_type_ptr.c \
+				ft_type_nbr.c \
+				ft_type_nbr2.c \
+				ft_type_un_nbr.c \
+				ft_type_hex.c \
+				ft_type_percent.c \
+				ft_width.c \
+				ft_type_un_nbr2.c \
+				ft_type_hex2.c \
+				ft_type_nbr3.c \
+				ft_type_hex3.c 
+
+STRUCT_FUNC =	ft_lstnew.c \
+				ft_lstadd_front.c \
+				ft_lstadd_back.c \
+				ft_lstsize.c \
+				ft_lstlast.c \
+				ft_lstdelone.c \
+				ft_lstclear.c \
+				ft_lstiter.c \
+				ft_lstmap.c
+
+OBJ_DIR = objs/
+PATH = ft_lib_basics/
+OBJ=	$(BASICS_FUNC:%.c=$(OBJ_DIR)%.o) \
+		$(PATH) = ft_lib_str/ \
+		$(STR_FUNC:%.c=$(OBJ_DIR)%.o) \
+		$(PATH) = ft_lib_mem/ \
+		$(MEM_FUNC:%.c=$(OBJ_DIR)%.o) \
+		$(PATH) = ft_lib_rest/ \
+		$(REST_FUNC:%.c=$(OBJ_DIR)%.o) \
+		$(PATH) = ft_lib_put/ \
+		$(PUT_FUNC:%.c=$(OBJ_DIR)%.o) \
+		$(PATH) = ft_gnl/ \
+		$(GNL_FUNC:%.c=$(OBJ_DIR)%.o) \
+		$(PATH) = ft_printf/ \
+		$(PRINTF_FUNC:%.c=$(OBJ_DIR)%.o) \
+		$(PATH) = ft_lib_struct/ \
+		$(STRUCT_FUNC:%.c=$(OBJ_DIR)%.o)
+		
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar -crs $(NAME) $(OBJ)
+	@echo "$(PINK)Compiling the library.$(CLEAR)"
+	$(AR) $(NAME) $(OBJ)
+	@echo "$(GREEN)libft compiled correctly\n$(CLEAR)"
 
-bonus: $(bonusu)
-	
-$(bonusu): $(NAME) $(OBJBONUS)
-	ar -crs $^
-	ar -crs $(bonusu) $^
+$(OBJ_DIR)%.o: $(PATH)%.c 
+	@echo "$(PINK)Compiling Object.$(CLEAR)"
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+	@echo "\n"
 
 clean:
-	rm -rf $(OBJ) $(OBJBONUS)
+	@echo "$(PINK)Removing compiled files.$(CLEAR)"
+	$(RM) $(OBJ_DIR)
+	@echo "$(GREEN)Object files removed correctly\n$(CLEAR)"
+
 fclean: clean
-	rm -rf $(NAME) $(bonusu)
+	$(RM) $(NAME)
+	@echo "$(GREEN)Exec. files removed correctly\nSuccess!\n$(CLEAR)"
+
 re: fclean all
+
 .PHONY: clean fclean re all

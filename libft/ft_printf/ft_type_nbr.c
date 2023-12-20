@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_type_nbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 19:36:47 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/10/24 16:38:29 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 13:25:14 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_count_nbr(long n, int len)
 	return (len);
 }
 
-int	ft_putnbr(long nb, int size, t_flags *check_flags)
+int	ft_putnbr_printf(long nb, int size, t_flags *check_flags)
 {
 	char	c;
 
@@ -30,7 +30,7 @@ int	ft_putnbr(long nb, int size, t_flags *check_flags)
 		&& check_flags->space == 0)
 		size += ft_check_sign(check_flags);
 	if (nb <= -10 || nb >= 10)
-		size = ft_putnbr((nb / 10), size, check_flags);
+		size = ft_putnbr_printf((nb / 10), size, check_flags);
 	c = (nb % 10) + '0';
 	size += write(1, &c, 1);
 	return (size);
@@ -101,7 +101,7 @@ int	ft_check_nbr(int n, t_flags *check_flags)
 		size += ft_flag_plus_nbr(check_flags);
 	if (check_flags->space == 1)
 		size += ft_flag_space_nbr(check_flags);
-	size += ft_putnbr(nb, 0, check_flags);
+	size += ft_putnbr_printf(nb, 0, check_flags);
 	ft_initialize_struct(check_flags);
 	return (size);
 }

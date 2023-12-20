@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_point_nbr.c                                     :+:      :+:    :+:   */
+/*   ft_type_nbr3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 21:53:05 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/10/21 19:40:00 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 13:26:14 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_case_three_pre_nbr(long nb, t_flags *check_flags)
 	i = check_flags->pre - ft_count_nbr(nb, 0);
 	while (i-- > 0)
 		size += write(1, "0", 1);
-	size += ft_putnbr(nb, 0, check_flags);
+	size += ft_putnbr_printf(nb, 0, check_flags);
 	ft_initialize_struct(check_flags);
 	return (size);
 }
@@ -75,7 +75,7 @@ int	ft_case_three2_pre_nbr(long nb, t_flags *check_flags)
 	i = check_flags->pre - ft_count_nbr(nb, 0);
 	while (i-- > 0)
 		size += write(1, "0", 1);
-	size += ft_putnbr(nb, 0, check_flags);
+	size += ft_putnbr_printf(nb, 0, check_flags);
 	if (ft_count_nbr(nb, 0) >= check_flags->pre)
 		i = check_flags->fmw - ft_count_nbr(nb, 0) - check_flags->byte;
 	else if (ft_count_nbr(nb, 0) < check_flags->pre)
@@ -96,7 +96,7 @@ int	ft_case_four_pre_nbr(long nb, t_flags *check_flags)
 	i = check_flags->pre - ft_count_nbr(nb, 0);
 	while (i-- > 0)
 		size += write(1, "0", 1);
-	size += ft_putnbr(nb, 0, check_flags);
+	size += ft_putnbr_printf(nb, 0, check_flags);
 	ft_initialize_struct(check_flags);
 	return (size);
 }

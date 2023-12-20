@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:59:50 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/18 12:37:06 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 13:32:51 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,7 @@
 #  define BUFFER_SIZE 10
 # endif
 
-# include <fcntl.h>
-# include <limits.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+# include "default_libs.h"
 
 char	*get_next_line(int fd);
 void	*ft_gnl_free(char *buff, char *aux);

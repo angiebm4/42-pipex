@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_type_string.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:19:07 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/10/21 19:24:36 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 13:27:18 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	ft_flag_less_string(char *str, t_flags *check_flags)
 	int	nb;
 
 	size = 0;
-	size += ft_putstr_printf(str, ft_strlen(str));
+	size += ft_putstr_printf(str, ft_strlen_printf(str));
 	nb = check_flags->fmw - size;
 	while (nb > 0)
 	{
@@ -57,13 +57,13 @@ static int	ft_point(char *str, t_flags *check_flags)
 		nb = check_flags->fmw;
 	else if (check_flags->fmw >= check_flags->pre)
 	{
-		if (check_flags->pre > ft_strlen(str))
-			nb = check_flags->fmw - ft_strlen(str);
-		if (check_flags->pre <= ft_strlen(str))
+		if (check_flags->pre > ft_strlen_printf(str))
+			nb = check_flags->fmw - ft_strlen_printf(str);
+		if (check_flags->pre <= ft_strlen_printf(str))
 			nb = check_flags->fmw - check_flags->pre;
 	}
 	else if (check_flags->fmw < check_flags->pre)
-		nb = check_flags->fmw - ft_strlen(str);
+		nb = check_flags->fmw - ft_strlen_printf(str);
 	while (nb > 0)
 	{
 		size += write(1, " ", 1);
@@ -112,5 +112,5 @@ int	ft_check_string(char *str, t_flags *check_flags)
 		return (ft_flag_less_string(aux, check_flags));
 	if (check_flags->fmw != 0)
 		return (ft_width_str(aux, check_flags));
-	return (ft_putstr_printf(aux, ft_strlen(aux)));
+	return (ft_putstr_printf(aux, ft_strlen_printf(aux)));
 }

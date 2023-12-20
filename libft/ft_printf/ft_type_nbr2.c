@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_type_nbr2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:11:52 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/10/21 19:45:16 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 13:25:36 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	ft_flag_zero_nbr(long nb, t_flags *check_flags)
 	i = 0;
 	while (i++ < print_zero)
 		size += write(1, "0", 1);
-	size += ft_putnbr(nb, 0, check_flags);
+	size += ft_putnbr_printf(nb, 0, check_flags);
 	ft_initialize_struct(check_flags);
 	return (size);
 }
@@ -75,7 +75,7 @@ int	ft_flag_less_nbr(long nb, t_flags *check_flags)
 	else if (nb == 0 && check_flags->point == 1 && check_flags->pre == 0)
 		size += write(1, " ", 1);
 	else
-		size += ft_putnbr(nb, 0, check_flags);
+		size += ft_putnbr_printf(nb, 0, check_flags);
 	while (i < print_space)
 	{
 		size += write(1, " ", 1);

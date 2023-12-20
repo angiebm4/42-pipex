@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_width.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 18:24:32 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/10/22 01:00:48 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 13:28:12 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_strlen(const char *str)
+int	ft_strlen_printf(const char *str)
 {
 	int	i;
 
@@ -33,13 +33,13 @@ int	ft_width_str(char *str, t_flags *check_flags)
 	if (str[0] == '\0')
 		len = check_flags->fmw;
 	else
-		len = check_flags->fmw - ft_strlen(str);
+		len = check_flags->fmw - ft_strlen_printf(str);
 	while (len > 0)
 	{
 		size += write(1, " ", 1);
 		len -= 1;
 	}
-	size += ft_putstr_printf(str, ft_strlen(str));
+	size += ft_putstr_printf(str, ft_strlen_printf(str));
 	check_flags->fmw = 0;
 	return (size);
 }
@@ -57,7 +57,7 @@ int	ft_width_nbr(long nb, t_flags *check_flags)
 	while (i++ < print_space)
 		size += write(1, " ", 1);
 	size += ft_check_sign(check_flags);
-	size += ft_putnbr(nb, 0, check_flags);
+	size += ft_putnbr_printf(nb, 0, check_flags);
 	ft_initialize_struct(check_flags);
 	return (size);
 }
@@ -84,7 +84,7 @@ int	ft_prewidth_nbr(long nb, t_flags *check_flags)
 	if (nb == 0 && check_flags->plus == 1)
 		return (size += ft_check_sign(check_flags));
 	size += ft_check_sign(check_flags);
-	size += ft_putnbr(nb, 0, check_flags);
+	size += ft_putnbr_printf(nb, 0, check_flags);
 	ft_initialize_struct(check_flags);
 	return (size);
 }
