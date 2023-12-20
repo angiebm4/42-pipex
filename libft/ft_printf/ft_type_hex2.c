@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_type_hex2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:42:39 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/10/22 01:03:21 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:16:47 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_case_one_pre_hex(unsigned long nb, char *base, t_flags *check_flags)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 15:33:34 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/18 12:35:30 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:25:56 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../includes/get_next_line.h"
 
 void	*ft_gnl_free(char *buff, char *aux)
 {
@@ -77,7 +77,7 @@ static char	*ft_getline(char *buff)
 
 char	*get_next_line(int fd)
 {
-	static char	*readnotprint[OPEN_MAX];
+	static char	*readnotprint[FOPEN_MAX];
 	char		*line;
 	int			i;
 

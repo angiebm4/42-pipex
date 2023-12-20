@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_type_char.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:39:03 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/10/21 19:18:27 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:16:38 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 static int	ft_flag_less_char(int c, t_flags *check_flags)
 {

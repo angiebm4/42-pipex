@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 12:00:32 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/09/21 17:33:15 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:21:09 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
+#include "../includes/libft.h"
 int	ft_toupper(int c)
 {
 	if (c <= 'z' && c >= 'a')

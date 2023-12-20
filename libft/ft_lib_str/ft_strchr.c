@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:58:51 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/10/03 22:10:36 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:24:33 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -27,13 +27,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)&s[i]);
 	return (NULL);
 }
-
-/*
-int	main(int argc, char **argv)
-{
-	(void)argc;
-	char *result = ft_strchr(argv[1], *argv[2]);
-	printf("%s", result);
-	return (0);
-}
-*/

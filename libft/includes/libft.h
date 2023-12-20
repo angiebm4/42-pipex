@@ -6,7 +6,7 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:55:11 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/20 13:31:59 by angela           ###   ########.fr       */
+/*   Updated: 2023/12/20 16:12:20 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 void	*ft_free_split(char **memory);
-double	ft_atof(char *str)
+double	ft_atof(char *str);
 
 // put
 void	ft_putchar_fd(char c, int fd);

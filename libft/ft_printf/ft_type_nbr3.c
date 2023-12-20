@@ -6,11 +6,11 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 21:53:05 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/20 13:26:14 by angela           ###   ########.fr       */
+/*   Updated: 2023/12/20 16:17:10 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_case_one_pre_nbr(long nb, t_flags *check_flags)
 {

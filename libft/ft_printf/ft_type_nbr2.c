@@ -6,11 +6,11 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 12:11:52 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/20 13:25:36 by angela           ###   ########.fr       */
+/*   Updated: 2023/12/20 16:17:06 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_flag_plus_nbr(t_flags *check_flags)
 {

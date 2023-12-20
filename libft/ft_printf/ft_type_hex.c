@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_type_hex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:25:05 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/10/22 01:06:41 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:16:41 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
+#include "../includes/ft_printf.h"
 int	ft_putnbr_hex(unsigned long nb, char *base, int size)
 {
 	if (nb < 16)

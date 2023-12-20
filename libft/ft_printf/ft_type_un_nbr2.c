@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_type_un_nbr2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 20:38:31 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/10/21 21:05:53 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:17:28 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_flag_less_un_nbr(unsigned long nb, t_flags *check_flags)
 {

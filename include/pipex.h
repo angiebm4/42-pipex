@@ -3,21 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:07:43 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/18 15:29:31 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/20 16:14:20 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-# include "../libft/ft_printf.h"
-# include "../libft/libft.h"
-# include "../libft/get_next_line.h"
-# include <stdio.h>
-# include <fcntl.h>
+# include "../libft/includes/ft_printf.h"
+# include "../libft/includes/libft.h"
+# include "../libft/includes/get_next_line.h"
+# include "../libft/includes/default_libs.h"
 
 typedef	struct	s_data
 {

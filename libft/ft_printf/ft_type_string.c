@@ -6,11 +6,11 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:19:07 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/20 13:27:18 by angela           ###   ########.fr       */
+/*   Updated: 2023/12/20 16:17:21 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_putstr_printf(char *str, int nb)
 {

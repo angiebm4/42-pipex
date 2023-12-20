@@ -6,11 +6,11 @@
 /*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 19:25:10 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/20 13:23:09 by angela           ###   ########.fr       */
+/*   Updated: 2023/12/20 16:26:41 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 void	ft_initialize_struct(t_flags *check_flags)
 {
@@ -28,9 +28,6 @@ void	ft_initialize_struct(t_flags *check_flags)
 
 static int	ft_bonus_flags(char flag, t_flags *check_flags)
 {
-	int	nb;
-
-	nb = 0;
 	if (flag <= '9' && flag >= '0')
 	{
 		if (flag == '0' && check_flags->fmw == 0 && check_flags->pre == 0
