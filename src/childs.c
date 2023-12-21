@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:10:46 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/21 14:38:16 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/21 17:12:14 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	first_child(t_data *data, int *fd, char *argv[])
 		exit (EXIT_FAILURE);
 }
 
-void	mid_child(t_data *data, int *fd, int *fd2, char *argv[])
+void	mid_child(t_data *data, int *fd, int *new, char *argv[])
 {
 	char	*path;
 
@@ -47,12 +47,12 @@ void	mid_child(t_data *data, int *fd, int *fd2, char *argv[])
 	if (data->ids == 0)
 	{
 		close(fd[1]);
-		close(fd2[0]);
+		close(new[0]);
 		dup2(fd[0], STDIN_FILENO);
-		dup2(fd2[1], STDOUT_FILENO);
+		dup2(new[1], STDOUT_FILENO);
 		path = get_path(argv[data->child + data->heredo], data);
 		close(fd[0]);
-		close(fd2[1]);
+		close(new[1]);
 		execve(path, data->command, data->envp);
 		exit(EXIT_FAILURE);
 	}
@@ -68,13 +68,17 @@ void	last_child(t_data *data, int *fd, char *argv[])
 	if (data->ids == 0)
 	{
 		close(fd[1]);
-		outfile = open(argv[data->argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		if (data->heredo == 1)
+			outfile = open(argv[data->argc - 1], O_WRONLY | O_CREAT | O_APPEND, 0644);
+		else
+			outfile = open(argv[data->argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 		if (outfile == -1)
 			exit(EXIT_FAILURE);
 		dup2(fd[0], STDIN_FILENO);
 		dup2(outfile, STDOUT_FILENO);
-		path = get_path(argv[data->argc - 1], data);
+		path = get_path(argv[data->argc - 2], data);
 		close(fd[0]);
+		dprintf(2,"uwu\n"); //para imprimir en la salida de eerrores de la terminal
 		close(outfile);
 		execve(path, data->command, data->envp);
 		exit(EXIT_FAILURE);
