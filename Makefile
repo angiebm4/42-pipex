@@ -27,7 +27,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "$(PINK)Compiling the librarys.$(CLEAR)"
-	$(MAKE) bonus -sC ./libft
+	$(MAKE) -sC ./libft
 	@echo "$(GREEN)librarys compiled correctly\n$(CLEAR)"
 	@echo "$(PINK)Compiling the pipex.$(CLEAR)"
 	$(CC) $(OBJ) $(LIB) -o $(NAME) -g3
