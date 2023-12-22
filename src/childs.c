@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:10:46 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/22 12:14:58 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:20:26 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,19 @@ void	first_child(t_data *data, int *fd, char *argv[])
 		else
 			infile = open(argv[1], O_RDONLY);
 		if (infile == -1)
-			exit(EXIT_FAILURE);
+			ft_error_pipex();
+		path = get_path(argv[2 + data->heredo], data);
+		if (!path)
+			ft_error_pipex();
 		dup2(infile, STDIN_FILENO);
 		dup2(fd[1], STDOUT_FILENO);
-		path = get_path(argv[2 + data->heredo], data);
 		close(fd[1]);
 		close(infile);
 		execve(path, data->command, data->envp);
-		exit(EXIT_FAILURE);
+		ft_error_pipex();
 	}
 	else if (data->ids < 0)
-		exit(EXIT_FAILURE);
+		ft_error_pipex();
 }
 
 void	mid_child(t_data *data, int *fd, int *new, char *argv[])
@@ -54,10 +56,10 @@ void	mid_child(t_data *data, int *fd, int *new, char *argv[])
 		close(fd[0]);
 		close(new[1]);
 		execve(path, data->command, data->envp);
-		exit(EXIT_FAILURE);
+		ft_error_pipex();
 	}
 	else if (data->ids < 0)
-		exit(EXIT_FAILURE);
+		ft_error_pipex();
 }
 
 void	last_child(t_data *data, int *fd, char *argv[])
@@ -76,15 +78,15 @@ void	last_child(t_data *data, int *fd, char *argv[])
 			outfile = open(argv[data->argc - 1], O_WRONLY | O_CREAT | O_TRUNC,
 					0644);
 		if (outfile == -1)
-			exit(EXIT_FAILURE);
+			ft_error_pipex();
 		dup2(fd[0], STDIN_FILENO);
 		dup2(outfile, STDOUT_FILENO);
 		path = get_path(argv[data->argc - 2], data);
 		close(fd[0]);
 		close(outfile);
 		execve(path, data->command, data->envp);
-		exit(EXIT_FAILURE);
+		ft_error_pipex();
 	}
 	else if (data->ids < 0)
-		exit(EXIT_FAILURE);
+		ft_error_pipex();
 }

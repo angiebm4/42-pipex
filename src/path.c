@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:06:01 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/22 11:58:21 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:08:53 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static char	*build_path(t_data *data)
 		path = ft_strdup(*data->command);
 	else
 	{
-		while (data->path_list)
+		while (data->path_list[i])
 		{
 			path = ft_strdup(data->path_list[i]);
 			if (!path)
@@ -86,5 +86,7 @@ char	*get_path(char *argv, t_data *data)
 	if (!data->command)
 		return (free_split(data->path_list, NULL));
 	path = build_path(data);
+	if (!path)
+		ft_error_pipex();
 	return (path);
 }

@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:07:43 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/22 12:25:45 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:22:37 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ void		first_child(t_data *data, int *fd, char *argv[]);
 void		last_child(t_data *data, int *fd, char *argv[]);
 void		mid_child(t_data *data, int *fd, int *new, char *argv[]);
 int			wait_childs(t_data *data);
+void		*free_split(char **str, char **str1);
+void		ft_error_pipex(void);
 
 #endif

@@ -9,8 +9,8 @@ CLEAR	=	\033[0m
 NAME =pipex
 
 CC = gcc
-#CFLAGS =-Wall -Werror -Wextra -fsanitize=address -g3
-CFLAGS =-Wall -Werror -Wextra -g3
+CFLAGS =-Wall -Werror -Wextra -fsanitize=address -g3
+# CFLAGS =-Wall -Werror -Wextra -g3
 
 # librarys
 LIB = libft/libft.a
@@ -30,8 +30,8 @@ $(NAME): $(OBJ)
 	$(MAKE) -sC ./libft
 	@echo "$(GREEN)librarys compiled correctly\n$(CLEAR)"
 	@echo "$(PINK)Compiling the pipex.$(CLEAR)"
-	$(CC) $(OBJ) $(LIB) -o $(NAME) -g3
-#	$(CC) $(OBJ) $(LIB) -o $(NAME) -fsanitize=address -g3
+#	$(CC) $(OBJ) $(LIB) -o $(NAME) -g3
+	$(CC) $(OBJ) $(LIB) -o $(NAME) -fsanitize=address -g3
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
 bonus: $(NAME)

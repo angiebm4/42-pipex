@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:47:58 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/22 12:22:39 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/22 15:10:46 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*get_heredo(char *delimiter)
 	aux = NULL;
 	fd = open("/tmp/pipex_heredo", O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (!fd)
-		exit(0);
+		ft_error_pipex();
 	delimiter = ft_strjoin(ft_strdup(delimiter), "\n");
 	if (!delimiter)
 		return (NULL);
@@ -49,12 +49,12 @@ void	heredo_process(t_data *data, char *argv[])
 	data->heredo = 1;
 	data->path_heredo = get_heredo(argv[2]);
 	if (pipe(fd) < 0)
-		exit(EXIT_FAILURE);
+		ft_error_pipex();
 	first_child(data, fd, argv);
 	while ((data->argc - 2) > data->child)
 	{
 		if (pipe(new) < 0)
-			exit(EXIT_FAILURE);
+			ft_error_pipex();
 		mid_child(data, fd, new, argv);
 		close(fd[0]);
 		close(fd[1]);
@@ -76,12 +76,12 @@ void	normal_files(t_data *data, char *argv[])
 	int		fd[2];
 
 	if (pipe(fd) < 0)
-		exit(EXIT_FAILURE);
+		ft_error_pipex();
 	first_child(data, fd, argv);
 	while ((data->argc - 2) > data->child)
 	{
 		if (pipe(new) < 0)
-			exit(EXIT_FAILURE);
+			ft_error_pipex();
 		mid_child(data, fd, new, argv);
 		close(fd[0]);
 		close(fd[1]);

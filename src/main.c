@@ -6,11 +6,23 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:07:24 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/22 12:16:16 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:22:18 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
+
+// void	leaks(void)
+// {
+// 	system("leaks -q pipex");
+// }
+
+void	ft_error_pipex(void)
+{
+	printf("uwu\n");
+	perror("uwu");
+	exit(EXIT_FAILURE);
+}
 
 void	init_stack_pipex(t_data *data, char *envp[], int nb_commands, int argc)
 {
@@ -34,7 +46,7 @@ void	init_stack_pipex(t_data *data, char *envp[], int nb_commands, int argc)
 		}
 		data->path_list = ft_split(&envp[i][5], ':');
 		if (!data->path_list)
-			exit(EXIT_FAILURE);
+			ft_error_pipex();
 	}
 	data->nb_commands = nb_commands;
 }
@@ -66,13 +78,17 @@ int	main(int argc, char *argv[], char *envp[])
 	if (envp && argv && argc > 5)
 		pipex_bonus(argc, argv, envp);
 	if (!envp || !argv || argc != 5)
-		return (0);
+	{
+		perror("put more arguments");
+		exit(EXIT_FAILURE);
+	}
 	init_stack_pipex(&data, envp, 2, argc);
 	if (pipe(fd) < 0)
-		exit(EXIT_FAILURE);
+		ft_error_pipex();
 	first_child(&data, fd, argv);
 	last_child(&data, fd, argv);
 	close(fd[1]);
 	close(fd[0]);
-	return (wait_childs(&data));
+	wait_childs(&data);
+	exit(EXIT_SUCCESS);
 }
