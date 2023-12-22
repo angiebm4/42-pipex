@@ -34,6 +34,8 @@ $(NAME): $(OBJ)
 #	$(CC) $(OBJ) $(LIB) -o $(NAME) -fsanitize=address -g3
 	@echo "$(GREEN)[OK]\n$(CLEAR)$(GREEN)Success!$(CLEAR)\n"
 
+bonus: $(NAME)
+
 $(OBJ_DIR)%.o: src/%.c
 	@echo "$(PINK)Compiling Object.$(CLEAR)"
 	@mkdir -p $(OBJ_DIR)
@@ -42,12 +44,12 @@ $(OBJ_DIR)%.o: src/%.c
 
 clean:
 	@echo "$(PINK)Removing compiled files.$(CLEAR)"
-	rm -rf $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR)
 	@$(MAKE) clean -sC ./libft
 	@echo "$(GREEN)Object files removed correctly\n$(CLEAR)"
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 	@$(MAKE) fclean -sC ./libft
 	@echo "$(GREEN)Exec. files removed correctly\nSuccess!\n$(CLEAR)"
 

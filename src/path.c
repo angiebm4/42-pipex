@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 10:06:01 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/18 10:08:26 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/22 11:58:21 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,42 @@ void	*free_split(char **str, char **str1)
 	return (NULL);
 }
 
+int	is_full_path(t_data *data)
+{
+	if (data->command[0][0] == '/')
+		return (1);
+	if (!ft_strncmp(data->command[0], "../", 3))
+		return (1);
+	if (!ft_strncmp(data->command[0], "./", 2))
+		return (1);
+	return (0);
+}
+
 static char	*build_path(t_data *data)
 {
 	int		i;
 	char	*path;
 
 	i = 0;
-	while (data->path_list)
+	if (data->path_list == NULL || is_full_path(data) == 1)
+		path = ft_strdup(*data->command);
+	else
 	{
-		path = ft_strdup(data->path_list[i]);
-		if (!path)
-			return (free_split(data->path_list, data->command));
-		path = ft_strjoin(path, "/");
-		if (!path)
-			return (free_split(data->path_list, data->command));
-		path = ft_strjoin(path, data->command[0]);
-		if (!path)
-			return (free_split(data->path_list, data->command));
-		if (access(path, F_OK) == 0)
-			break ;
-		i++;
+		while (data->path_list)
+		{
+			path = ft_strdup(data->path_list[i]);
+			if (!path)
+				return (free_split(data->path_list, data->command));
+			path = ft_strjoin(path, "/");
+			if (!path)
+				return (free_split(data->path_list, data->command));
+			path = ft_strjoin(path, data->command[0]);
+			if (!path)
+				return (free_split(data->path_list, data->command));
+			if (access(path, F_OK) == 0)
+				break ;
+			i++;
+		}
 	}
 	return (path);
 }
