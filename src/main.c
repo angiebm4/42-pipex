@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:07:24 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/22 16:22:18 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/27 14:13:39 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@
 
 void	ft_error_pipex(void)
 {
-	printf("uwu\n");
 	perror("uwu");
-	exit(EXIT_FAILURE);
+	exit(STDERR_FILENO);
 }
 
 void	init_stack_pipex(t_data *data, char *envp[], int nb_commands, int argc)
@@ -74,13 +73,14 @@ int	main(int argc, char *argv[], char *envp[])
 {
 	t_data	data;
 	int		fd[2];
+	int		status;
 
 	if (envp && argv && argc > 5)
 		pipex_bonus(argc, argv, envp);
 	if (!envp || !argv || argc != 5)
 	{
 		perror("put more arguments");
-		exit(EXIT_FAILURE);
+		exit(STDERR_FILENO);
 	}
 	init_stack_pipex(&data, envp, 2, argc);
 	if (pipe(fd) < 0)
@@ -89,6 +89,6 @@ int	main(int argc, char *argv[], char *envp[])
 	last_child(&data, fd, argv);
 	close(fd[1]);
 	close(fd[0]);
-	wait_childs(&data);
-	exit(EXIT_SUCCESS);
+	status = wait_childs(&data);
+	exit(status);
 }

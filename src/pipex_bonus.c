@@ -6,7 +6,7 @@
 /*   By: abarrio- <abarrio-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:47:58 by abarrio-          #+#    #+#             */
-/*   Updated: 2023/12/22 15:10:46 by abarrio-         ###   ########.fr       */
+/*   Updated: 2023/12/27 11:33:41 by abarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void	normal_files(t_data *data, char *argv[])
 void	pipex_bonus(int argc, char *argv[], char *envp[])
 {
 	t_data	data;
+	int		status;
 
 	if (!ft_strcmp("here_doc", argv[1]))
 	{
@@ -110,6 +111,6 @@ void	pipex_bonus(int argc, char *argv[], char *envp[])
 		init_stack_pipex(&data, envp, argc - 3, argc);
 		normal_files(&data, argv);
 	}
-	wait_childs(&data);
-	exit(EXIT_SUCCESS);
+	status = wait_childs(&data);
+	exit(status);
 }
